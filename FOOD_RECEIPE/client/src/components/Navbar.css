@@ -1,0 +1,89 @@
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space between logo and links */
+    align-items: center; /* Center items vertically */
+    padding: 10px 20px; /* Top/bottom and left/right padding */
+    background-color: transparent; /* Semi-transparent white background */
+    position: fixed; /* Keeps the navbar fixed at the top */
+    top: 0; /* Stays at the top */
+    width: 100%; /* Full width */
+    backdrop-filter: blur(8px); /* Adds a blur effect behind the navbar */
+    z-index: 1000; /* Ensures the navbar is above other content */
+    border: none; /* Removes any border */
+    box-shadow: none; /* Removes any box shadow */
+    margin-top: 10px;
+}
+
+/* Logo styling */
+.logo h1 {
+    font-family: 'Lobster', cursive; /* Different font for Recipe Haven */
+    font-size: 2.5rem; /* Adjusts the size */
+    color: #000; /* Black color for text */
+    margin: 0; /* Removes default margin */
+}
+
+/* Navigation links styling */
+.nav-links {
+    list-style: none; /* Removes bullets */
+    display: flex; /* Displays links in a row */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+}
+
+/* Individual link styling */
+.nav-links li {
+    margin: 0 15px; /* Adds horizontal spacing between links */
+}
+
+.nav-links a {
+    text-decoration: none; /* Removes underline */
+    color: #000; /* Black text color */
+    font-size: 1.2rem; /* Adjusts the font size */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for links */
+.nav-links a:hover {
+    color: #ff5733; /* Change to a different color (like orange) on hover */
+}
+
+/* Latest Contest link styling */
+.contest {
+    list-style: none; /* Removes bullets */
+    margin-left: -30px; /* Adjusted margin-left to move it slightly to the left */
+}
+.contest_button {
+    position: relative;
+    left: -30px; /* Moves the button 20px to the left */
+}
+
+
+.contest li {
+    margin-left: 0; /* Remove the extra margin-left on li to prevent further shifting */
+}
+@keyframes blink {
+    0%, 100% {
+        opacity: 1; /* Fully visible */
+    }
+    50% {
+        opacity: 0; /* Fully invisible */
+    }
+}
+
+.contest a {
+    text-decoration: none; /* Removes underline */
+    color: #000; /* Black text color */
+    font-weight: bold; /* Bold text */
+    background-color: rgb(244, 220, 42); /* Yellow background for contest link */
+    padding: 8px 15px; /* Padding around the contest link */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    animation: blink 1s infinite; 
+}
+
+
+/* Hover effect for contest link */
+.contest a:hover {
+    background-color: #ff5733; /* Changes background to orange on hover */
+}

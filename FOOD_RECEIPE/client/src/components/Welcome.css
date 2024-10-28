@@ -1,0 +1,83 @@
+.welcome-page {
+    padding-top: 60px; /* Ensure content appears below the navbar */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between content and image */
+    align-items: center; /* Center items vertically */
+    height: 100vh; /* Full height of the viewport */
+}
+
+.content_welcome {
+    text-align: left; /* Align text to the left */
+    margin-left: 50px; /* Add space from the left side */
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.content_welcome h1 {
+    font-size: 2.5rem; /* Size of the heading */
+    color: #ff5733; /* Orange color for the heading text */
+    margin: 0; /* Remove default margin */
+}
+/* Container for the welcome image */
+.image_welcome {
+    display: flex; /* Use flexbox to center the image */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically if needed */
+    margin: 20px; /* Adjust margins as needed */
+    text-align: center; /* Center the image within the div */
+}
+
+/* Image styling */
+.image_welcome img {
+    width: 400px; /* Set a larger width for the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: rounded corners for a nicer look */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow effect */
+    /* Uncomment the following line to move the image slightly */
+    /* transform: translate(20px, 10px); */ /* Move right by 20px and down by 10px */
+}
+
+/* Optional: Align image to the left */
+.image_welcome.left {
+    justify-content: flex-start; /* Aligns the image to the left */
+}
+
+/* Optional: Align image to the right */
+.image_welcome.right {
+    justify-content: flex-end; /* Aligns the image to the right */
+}
+
+/* Optional: Absolute positioning example */
+.image_welcome.absolute {
+    position: relative; /* Set the parent to relative */
+}
+
+.image_welcome.absolute img {
+    position: absolute; /* Position the image absolutely */
+    top: 50px; /* Move down from the top */
+    left: 50px; /* Move right from the left */
+}
+
+/* Button styling */
+.button_welcome {
+    background-color: #3498db; /* Blue background color */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Add some padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+    font-size: 16px; /* Set font size */
+    font-weight: bold; /* Set font weight to bold */
+}
+
+/* Hover effect */
+.button_welcome:hover {
+    background-color: #2e6da4; /* Darker blue background color on hover */
+    color: #fff; /* White text color on hover */
+}
+
+/* Active effect */
+.button_welcome:active {
+    background-color: #1a5d8a; /* Even darker blue background color on active */
+    color: #fff; /* White text color on active */
+}

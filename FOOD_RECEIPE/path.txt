@@ -1,0 +1,52 @@
+/project-directory
+|-- /client                     # Frontend React App
+|   |-- /public
+|   |-- /src
+|       |-- /components
+|           |-- Login.js
+|           |-- Register.js
+|           |-- App.js
+|-- /server                      # Backend API
+|   |-- /config
+|       |-- db.js                # MongoDB connection
+|   |-- /controllers
+|       |-- authController.js    # Handle registration & login
+|   |-- /middleware
+|       |-- authMiddleware.js    # JWT verification
+|   |-- /models
+|       |-- User.js              # MongoDB schema for users
+|   |-- /routes
+|       |-- authRoutes.js        # Routes for auth API
+|   |-- /utils
+|       |-- jwt.js               # JWT token generation
+|   |-- server.js                # Express server
+|-- .env                         # Environment variables
+|-- package.json
+
+
+
+
+
+
+
+
+FOOD_RECEIPE/
+│
+├── server/
+│   ├── config/
+│   │   └── db.js
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   └── recipeController.js
+│   ├── middleware/
+│   │   └── authMiddleware.js
+│   ├── models/
+│   │   ├── Recipe.js
+│   │   └── User.js
+│   ├── utils/
+│   │   └── jwt.js
+│   └── server.js
+│
+├── client/  (your React frontend)
+│
+└── .env     (your environment variables)

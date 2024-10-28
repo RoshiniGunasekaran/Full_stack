@@ -1,0 +1,78 @@
+/* General form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Input fields and textareas */
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #6c757d;
+    outline: none;
+}
+
+/* Button styles */
+button {
+    padding: 12px 20px;
+    margin-top: 20px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Error message styling */
+p {
+    margin-top: 10px;
+    color: red;
+    font-weight: bold;
+}
+
+/* Form container */
+form input::placeholder,
+form textarea::placeholder {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 768px) {
+    form {
+        width: 90%;
+        padding: 15px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}

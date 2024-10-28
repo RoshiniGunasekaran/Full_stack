@@ -1,0 +1,175 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html, #root {
+    height: 100%;
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+/* Background Image */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('D:\PROJECT\fullstack\FOOD_RECEIPE\FOOD_RECEIPE\client\Backgroundimages.jpg'); 
+    background-size: cover;
+    background-position: center;
+    z-index: -2; /* Ensure it's behind the overlay and content */
+}
+
+/* Overlay to darken the background image for better readability */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+    z-index: -1;
+}
+
+/* Login Container */
+.login-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Login Title */
+.login-title {
+    font-size: 64px; /* Increase font size */
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255, 105, 180, 0.8); /* Add a colorful glow effect */
+    margin-bottom: 30px;
+    text-align: center; /* Center the title */
+    animation: fadeIn 1s ease; /* Optional animation */
+}
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* Responsive Design */
+@media (max-width: 500px) {
+    .login-title {
+        font-size: 48px; /* Smaller font size for mobile */
+    }
+}
+
+/* Login Form */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 30px;
+    border: 2px solid #fff;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Login Inputs */
+.login-input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    font-size: 16px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.login-input:focus {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+    outline: none;
+}
+
+/* Login Button */
+.login-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff69b4;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.login-button:hover {
+    background-color: #ff99cc;
+    transform: translateY(-2px);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+/* Error Message */
+.login-error {
+    color: #ff4d4d;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Register Link */
+.login-register {
+    margin-top: 25px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+}
+
+.login-register-link {
+    text-decoration: none;
+    color: #ff69b4;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.login-register-link:hover {
+    color: #ff99cc;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .login-title {
+        font-size: 36px;
+    }
+
+    .login-form {
+        padding: 20px;
+    }
+
+    .login-input, .login-button {
+        padding: 12px;
+        font-size: 16px;
+    }
+}

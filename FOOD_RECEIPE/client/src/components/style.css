@@ -1,0 +1,134 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main container */
+.main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+.heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.heading h1 {
+    color: #333;
+    font-size: 28px;
+}
+
+.heading h4 {
+    color: #666;
+    font-size: 16px;
+}
+
+/* Search box styles */
+.searchBox {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+.search-bar:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Container for meal items */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Card styles for each meal item */
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 30%; /* Adjust width as necessary */
+    margin: 10px;
+    transition: transform 0.3s;
+    cursor: pointer; /* Indicate clickable */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Image styles */
+.card img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Information section within the card */
+.info {
+    padding: 15px;
+}
+
+.info h2 {
+    font-size: 20px;
+    color: #333;
+}
+
+.info p {
+    color: #777;
+}
+
+/* Recipe details styles */
+.recipe {
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+.recipe h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.recipe p {
+    color: #555;
+}
+
+/* Styling for the video link */
+.recipe a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.recipe a:hover {
+    text-decoration: underline;
+}
+
+/* Not found message styles */
+.notSearch {
+    color: #ff0000;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+}
