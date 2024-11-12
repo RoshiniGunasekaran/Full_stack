@@ -1,165 +1,129 @@
-/* Reset some basic styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* Register.css */
 
-body, html, #root {
-    height: 100%;
-    width: 100%;
-    font-family: 'Arial', sans-serif;
+.register-background {
+    background: linear-gradient(135deg, #ff6f61, #feb47b);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-attachment: fixed;
     overflow: hidden;
 }
 
-.register-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../../Backgroundimagesregister.jpg'); /* Adjusted to relative path */
-    background-size: cover;
-    background-position: center;
-    z-index: -2; /* Behind the overlay */
-}
-
-
-/* Overlay to darken the background image for better readability */
-.register-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Darker overlay for better readability */
-    z-index: -1; /* Behind the content */
-}
-
-/* Register Container */
 .register-container {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    width: 360px;
+    transform: translateY(0);
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
 }
 
-/* Register Title */
+.register-container:hover {
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
 .register-title {
-    font-size: 48px; /* Title font size */
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #333;
     font-weight: bold;
-    color: #fff;
-    text-shadow: 0 0 15px rgba(255, 105, 180, 1); /* Enhanced glow effect */
-    margin-bottom: 20px;
-    transition: transform 0.3s; /* Title hover effect */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
 }
 
-.register-title:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
+.register-title::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background: #feb47b;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-/* Register Form */
 .register-form {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    padding: 30px;
-    border: 2px solid #fff;
-    border-radius: 20px; /* Slightly more rounded corners */
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)); /* Gradient background */
-    backdrop-filter: blur(20px); /* Increased blur effect */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); /* Deeper shadow effect */
-    width: 100%;
-    max-width: 400px; /* Maximum width of the form */
 }
 
-/* Register Inputs */
 .register-input {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 15px; /* Space between inputs */
-    border: 2px solid rgba(255, 105, 180, 0.5); /* Subtle border */
-    border-radius: 12px; /* Slightly more rounded corners */
-    background-color: rgba(255, 255, 255, 0.8); /* Background color for inputs */
-    color: #333;
-    font-size: 16px;
-    transition: all 0.3s; /* Smooth transition */
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
 .register-input:focus {
-    background-color: #fff; /* Change background on focus */
-    border-color: #ff69b4; /* Change border color on focus */
-    box-shadow: 0 0 10px rgba(255, 105, 180, 0.5); /* Shadow on focus */
-    outline: none; /* Remove default outline */
+    border-color: #ff6f61;
+    outline: none;
+    transform: scale(1.05);
 }
 
-/* Register Button */
 .register-button {
-    width: 100%;
-    padding: 15px;
-    background: linear-gradient(90deg, #ff69b4, #ff99cc); /* Gradient button */
-    color: #fff;
+    padding: 0.75rem;
+    background: linear-gradient(45deg, #ff6f61, #feb47b);
+    color: white;
     border: none;
-    border-radius: 12px; /* Slightly more rounded corners */
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: not-allowed; /* Default state: not clickable */
+    pointer-events: none; /* Disable clicks */
+    opacity: 0.5; /* Make button look disabled */
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.register-button.active {
     cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    transition: all 0.3s; /* Smooth transition */
+    pointer-events: auto;
+    opacity: 1;
 }
 
 .register-button:hover {
-    background: linear-gradient(90deg, #ff99cc, #ff69b4); /* Inverse gradient on hover */
-    transform: translateY(-3px); /* Lift effect on hover */
+    background: linear-gradient(45deg, #feb47b, #ff6f61);
+    transform: scale(1.05);
 }
 
-.register-button:active {
-    transform: translateY(0); /* Reset lift effect on click */
-}
-
-/* Error Message */
 .register-error {
-    color: #ff4d4d; /* Error message color */
-    margin-top: 15px;
-    text-align: center; /* Center align error message */
-    font-weight: bold;
-    font-size: 14px; /* Slightly smaller font size */
+    color: red;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 1rem;
+    animation: shake 0.5s ease-in-out;
 }
 
-/* Login Link */
 .register-login {
-    margin-top: 20px;
-    font-size: 16px;
-    color: #fff; /* Link color */
-    text-align: center; /* Center align link */
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #555;
 }
 
 .register-login-link {
-    text-decoration: none; /* Remove underline */
-    color: #ff69b4; /* Link color */
-    font-weight: bold; /* Bold link */
-    transition: color 0.3s; /* Smooth transition */
+    color: #ff6f61;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .register-login-link:hover {
-    color: #ff99cc; /* Change link color on hover */
+    color: #feb47b;
+    text-decoration: underline;
 }
 
-/* Responsive Design */
-@media (max-width: 500px) {
-    .register-title {
-        font-size: 36px; /* Smaller font size for mobile */
-    }
-
-    .register-form {
-        padding: 20px; /* Adjust form padding for mobile */
-    }
-
-    .register-input, .register-button {
-        padding: 12px; /* Adjust padding for inputs and buttons */
-        font-size: 16px; /* Adjust font size for inputs and buttons */
-    }
+/* Keyframe for shake effect */
+@keyframes shake {
+    0% { transform: translateX(-10px); }
+    25% { transform: translateX(10px); }
+    50% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
 }

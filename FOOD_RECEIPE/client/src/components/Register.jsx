@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { useNavigate, Link } from 'react-router-dom';
 import './Register.css';
 
 const Register = () => {
@@ -11,6 +11,10 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!name || !email || !password) {
+            setErrorMessage('All fields are required.');
+            return;
+        }
         try {
             const response = await fetch('http://localhost:5000/api/auth/register', {
                 method: 'POST',
@@ -21,9 +25,13 @@ const Register = () => {
             });
             const data = await response.json();
             if (response.ok) {
+                // Reset form fields after successful registration
+                setName('');
+                setEmail('');
+                setPassword('');
                 navigate('/welcome'); // Redirect to the Welcome page on successful registration
             } else {
-                setErrorMessage(data.message);
+                setErrorMessage(data.message || 'Registration failed.');
             }
         } catch (error) {
             console.error('Error:', error);
@@ -61,7 +69,13 @@ const Register = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
-                    <button className="register-button" type="submit">Register</button>
+                    <button
+                        className={`register-button ${name && email && password ? 'active' : ''}`}
+                        type="submit"
+                        disabled={!name || !email || !password}
+                    >
+                        Register
+                    </button>
                 </form>
                 {errorMessage && <p className="register-error">{errorMessage}</p>}
                 <p className="register-login">

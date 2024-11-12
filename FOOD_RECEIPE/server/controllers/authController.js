@@ -2,7 +2,6 @@
 const User = require('../models/User'); // Import your user model
 const bcrypt = require('bcryptjs'); // For password hashing
 const { generateToken } = require('../utils/jwt'); // Utility function to generate token
-
 // User Registration
 exports.registerUser = async (req, res) => {
   const { name, email, password } = req.body;
@@ -21,13 +20,14 @@ exports.registerUser = async (req, res) => {
     user = new User({ name, email, password: hashedPassword });
     await user.save();
 
-    const token = generateToken(user._id); // Generate JWT token
+    // Generate JWT token
+    const token = generateToken(user._id);
     res.status(201).json({ 
       message: 'User registered successfully!', 
       token 
     });
   } catch (error) {
-    console.error('Error during registration:', error);
+    console.error('Error during registration:', error.message);
     res.status(500).json({ message: 'Server error during registration' });
   }
 };

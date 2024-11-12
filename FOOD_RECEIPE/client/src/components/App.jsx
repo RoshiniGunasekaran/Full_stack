@@ -4,6 +4,7 @@ import Register from './Register';
 import Welcome from './Welcome';
 import Meal from './Meal';
 import RecipeForm from './RecipeForm.jsx'; 
+import RecipeDetail from "./RecipeDetail";
 
 const App = () => {
     return (
@@ -14,6 +15,7 @@ const App = () => {
                 <Route path="/register" element={<Register />} />
                 <Route path="/add-recipe" element={<RecipeForm />} />
                 <Route path="/meal" element={<Meal />} />
+                <Route path="/recipe-detail" element={<RecipeDetail />} />
             </Routes>
         </Router>
     );

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import './Meal.css';
 import Navbar from '../components/Navbar';
@@ -7,7 +8,7 @@ const Meal = () => {
     const [timeout, updateTimeoutId] = useState();
     const [search, setSearch] = useState("");
     const [recipes, setRecipes] = useState([]);
-    const [selectedRecipe, setSelectedRecipe] = useState(null);
+    const navigate = useNavigate();
 
     const YOUR_APP_ID = "82e453da";
     const YOUR_APP_KEY = "3bb5d1a3b992f408b9003effd74c9c22";
@@ -34,12 +35,8 @@ const Meal = () => {
         updateTimeoutId(timeoutId);
     };
 
-    const showRecipeDetails = (recipe) => {
-        setSelectedRecipe(recipe);
-    };
-
-    const closeModal = () => {
-        setSelectedRecipe(null);
+    const viewRecipe = (recipe) => {
+        navigate('/recipe-detail', { state: { recipe } });
     };
 
     return (
@@ -66,32 +63,13 @@ const Meal = () => {
                         recipes.map((recipeItem, index) => (
                             <div key={index} className="recipe-item">
                                 <img src={recipeItem.recipe.image} alt={recipeItem.recipe.label} />
-                                <button onClick={() => showRecipeDetails(recipeItem.recipe)} className="view-recipe-button">
+                                <button onClick={() => viewRecipe(recipeItem.recipe)} className="view-recipe-button">
                                     View Recipe
                                 </button>
                             </div>
                         ))
                     )}
                 </div>
-                {selectedRecipe && (
-                    <div className="modal">
-                        <div className="modal-content">
-                            <span className="close" onClick={closeModal}>&times;</span>
-                            <h2>{selectedRecipe.label}</h2>
-                            <img src={selectedRecipe.image} alt={selectedRecipe.label} />
-                            <p>Calories: {Math.round(selectedRecipe.calories)}</p>
-                            <h4>Ingredients:</h4>
-                            <ul>
-                                {selectedRecipe.ingredientLines.map((ingredient, index) => (
-                                    <li key={index}>{ingredient}</li>
-                                ))}
-                            </ul>
-                            <a href={selectedRecipe.url} target="_blank" rel="noopener noreferrer">
-                                Full Recipe
-                            </a>
-                        </div>
-                    </div>
-                )}
             </div>
         </div>
     );

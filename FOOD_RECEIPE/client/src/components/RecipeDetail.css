@@ -1,0 +1,246 @@
+/* Overall container styling for a vibrant layout */
+.recipe-detail {
+    display: flex;
+    align-items: flex-start;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: linear-gradient(145deg, #ffecd2, #fcb69f);
+    border-radius: 20px;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow for added depth */
+    animation: fadeIn 0.8s ease-in-out;
+    overflow: hidden; /* Prevent content from overflowing */
+}
+
+/* Keyframe animation for entry effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styling for the recipe image section */
+.recipe-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 350px; /* Ensure image section has a minimum height */
+    overflow: hidden; /* Hide any overflowed part of the image */
+    border-radius: 15px; /* Rounded corners for smoother look */
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1); /* Soft shadow around image */
+}
+
+.recipe-image img {
+    width: 100%;
+    height: auto;
+    max-width: 350px; /* Limit image size to prevent it from growing too large */
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+}
+
+.recipe-image img:hover {
+    transform: scale(1.1); /* Larger scale on hover */
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.2); /* Bigger shadow for emphasis */
+}
+
+/* Info section to contain recipe details */
+.recipe-info {
+    flex: 2;
+    margin-left: 40px;
+    color: #3e3e3e;
+    position: relative;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.15); /* Soft shadow to stand out */
+    animation: slideInRight 0.8s ease-out;
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+    max-height: 650px; /* Limit height of the recipe info section */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Keyframe animation for sliding effect */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Main title styling with gradient color */
+.recipe-info h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #d23f57;
+    background: linear-gradient(90deg, #d23f57, #f58e60);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect on title */
+.recipe-info h1:hover {
+    color: #ff8b8b; /* Subtle hover color change */
+}
+
+/* Calories and ingredient header styling */
+.recipe-info p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.recipe-info h4 {
+    margin-top: 25px;
+    font-size: 1.4em;
+    color: #d23f57;
+    font-weight: bold;
+}
+
+/* Ingredient list styling */
+.recipe-info ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.recipe-info ul li {
+    margin: 7px 0;
+    color: #666;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.recipe-info ul li:hover {
+    color: #ff6b6b; /* Red highlight on hover */
+}
+
+/* Button to original recipe link with hover effect */
+.original-link {
+    display: inline-block;
+    margin-top: 25px;
+    background-color: #ff6b6b;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.original-link:hover {
+    background-color: #ff8b8b;
+    transform: translateY(-4px);
+    box-shadow: 0px 10px 25px rgba(255, 107, 107, 0.4); /* Hover shadow effect */
+}
+
+/* Back button styling */
+.back-button {
+    display: inline-block;
+    margin-top: 25px;
+    margin-left: 500px;
+    background-color: #ff6b6b;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.back-button:hover {
+    color: #ff8b8b;
+    transform: translateY(-2px);
+    box-shadow: 0px 10px 25px rgba(255, 107, 107, 0.4);
+}
+
+/* Style for scaling dropdown with smooth hover effect */
+.scaling-dropdown {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Ensure proper alignment */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.scaling-dropdown label {
+    font-size: 1.3em;
+    margin-right: 12px;
+    color: #5a5a5a;
+    font-weight: bold;
+}
+
+.scaling-dropdown select {
+    padding: 12px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    background-color: #fff;
+    transition: border 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect for select dropdown */
+.scaling-dropdown select:hover {
+    border-color: #ff6b6b;
+    transform: scale(1.05); /* Subtle zoom effect */
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2); /* Enhance shadow */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .recipe-detail {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .recipe-image img {
+        width: 250px;
+    }
+
+    .recipe-info {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .back-button {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .recipe-info h1 {
+        font-size: 2em;
+    }
+
+    .recipe-info p,
+    .recipe-info h4 {
+        font-size: 1em;
+    }
+
+    .recipe-info ul li {
+        font-size: 0.9em;
+    }
+
+    .scaling-dropdown label {
+        font-size: 1.1em;
+    }
+
+    .scaling-dropdown select {
+        font-size: 1em;
+    }
+}
