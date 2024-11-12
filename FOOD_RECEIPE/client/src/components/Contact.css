@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #e5e5e5;
+}
+
+.menu {
+  height: 15em;
+  width: 7em;
+  background: #262626;
+  position: fixed;
+  color: #fff;
+  border-bottom-right-radius: 5px;
+  left: -7em;
+  transition: left 1s;
+}
+
+.active {
+  position: fixed;
+  left: 0;
+}
+
+.menu a {
+  color: #fff;
+}
+
+.menu a:hover {
+  color: #000;
+}
+
+.icon-menu {
+  height: 2em;
+  width: 2em;
+  position: absolute;
+  left: 7em;
+}
+
+.icon-menu:hover {
+  cursor: pointer;
+  -webkit-transform: scaleX(0.9);
+}
+
+.main {
+  text-align: center;
+}
+
+.main h1 {
+  margin-top: 1.5em;
+  margin-bottom: 30px;
+  font-size: 6.5em;
+  font-family: 'Monoton', cursive;
+  text-shadow: 2px 1px 1px #999999;
+}
+
+form .input-group .btn {
+  background: #323232;
+  color: #fff;
+}
+
+form .input-group input {
+  width: 30em;  /* Makes the search bar longer */
+  background-color: #fff; /* Set search bar background to white */
+  color: yellow;  /* Change text color inside the search bar to yellow */
+}
+
+form .input-group input:focus {
+  border-color: yellow;  /* Change border color to yellow */
+  color: yellow;  /* Ensure the text color remains yellow on focus */
+}
+
+form .input-group .btn {
+  background: #323232;
+  color: yellow;  /* Change the button text color to yellow */
+}
+
+.extra h4 {
+  margin-top: 1.5em;
+  text-align: center;
+}
+
+.extra a h4 {
+  color: #191919;
+}
+
+.extra a, h4:hover {
+  text-decoration: none;
+  -webkit-transform: skewX(20deg);
+}
+
+.navbar-inverse {
+  background-color: #222;
+  border-color: #080808;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: #ccc;
+}
+
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #ccc;
+}

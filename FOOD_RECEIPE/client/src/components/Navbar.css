@@ -8,6 +8,7 @@
     position: fixed; /* Keeps the navbar fixed at the top */
     top: 0; /* Stays at the top */
     width: 100%; /* Full width */
+    height : 10%;
     backdrop-filter: blur(8px); /* Adds a blur effect behind the navbar */
     z-index: 1000; /* Ensures the navbar is above other content */
     border: none; /* Removes any border */
