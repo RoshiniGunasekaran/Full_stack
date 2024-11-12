@@ -1,79 +1,109 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import React, { useState } from 'react';
+import './RecipeForm.css';
 
-const RecipeForm = () => {
-    const [title, setTitle] = useState('');
-    const [ingredients, setIngredients] = useState('');
-    const [instructions, setInstructions] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
-    const navigate = useNavigate(); // Initialize useNavigate
+function DonationForm() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [recipeName, setRecipeName] = useState('');
+  const [ingredients, setIngredients] = useState('');
+  const [instructions, setInstructions] = useState('');
+  const [prepTime, setPrepTime] = useState('');
+  const [cookTime, setCookTime] = useState('');
+  const [error, setError] = useState('');
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+  const handleSubmit = () => {
+    if (!name || !email || !recipeName || !ingredients || !instructions || !prepTime || !cookTime) {
+      setError('All fields must be filled out!');
+    } else {
+      setError('');
+      alert('Form Submitted');
+    }
+  };
 
-        const token = localStorage.getItem('token'); // Assuming token is stored in localStorage
+  return (
+    <div className="donation-form-container">
+      <div className="form-row">
+        <div className="form-field">
+          <label>Name</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter your name"
+          />
+        </div>
+        <div className="form-field">
+          <label>Email</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
+          />
+        </div>
+      </div>
 
-        if (!token) {
-            setErrorMessage('No token, authorization denied');
-            navigate('/login'); // Redirect to login page
-            return;
-        }
+      <div className="form-row">
+        <div className="form-field">
+          <label>Recipe Name</label>
+          <input
+            type="text"
+            value={recipeName}
+            onChange={(e) => setRecipeName(e.target.value)}
+            placeholder="Enter the recipe name"
+          />
+        </div>
+        <div className="form-field">
+          <label>Ingredients</label>
+          <textarea
+            value={ingredients}
+            onChange={(e) => setIngredients(e.target.value)}
+            placeholder="List the ingredients"
+            rows="4"
+          ></textarea>
+        </div>
+      </div>
 
-        try {
-            const response = await fetch('http://localhost:5000/api/recipes', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`, // Include token in Authorization header
-                },
-                body: JSON.stringify({
-                    title,
-                    ingredients: ingredients.split(','), // Convert ingredients string to array
-                    instructions,
-                    createdBy: 'testuser@example.com', // Replace with actual user from token, if applicable
-                }),
-            });
+      <div className="form-row">
+        <div className="form-field">
+          <label>Cooking Instructions</label>
+          <textarea
+            value={instructions}
+            onChange={(e) => setInstructions(e.target.value)}
+            placeholder="Describe the cooking instructions"
+            rows="4"
+          ></textarea>
+        </div>
+        <div className="form-field">
+          <label>Preparation Time (minutes)</label>
+          <input
+            type="number"
+            value={prepTime}
+            onChange={(e) => setPrepTime(e.target.value)}
+            placeholder="Enter preparation time"
+          />
+        </div>
+      </div>
 
-            if (response.ok) {
-                setTitle('');
-                setIngredients('');
-                setInstructions('');
-                alert('Recipe added successfully!');
-            } else {
-                const data = await response.json();
-                setErrorMessage(data.message || 'Error adding recipe');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            setErrorMessage('An error occurred. Please try again.');
-        }
-    };
+      <div className="form-row">
+        <div className="form-field">
+          <label>Cooking Time (minutes)</label>
+          <input
+            type="number"
+            value={cookTime}
+            onChange={(e) => setCookTime(e.target.value)}
+            placeholder="Enter cooking time"
+          />
+        </div>
+      </div>
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="Recipe Title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                required
-            />
-            <textarea
-                placeholder="Ingredients (comma-separated)"
-                value={ingredients}
-                onChange={(e) => setIngredients(e.target.value)}
-                required
-            />
-            <textarea
-                placeholder="Instructions"
-                value={instructions}
-                onChange={(e) => setInstructions(e.target.value)}
-                required
-            />
-            <button type="submit">Add Recipe</button>
-            {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-        </form>
-    );
-};
+      {error && <p className="error-message">{error}</p>}
 
-export default RecipeForm;
+      <button className="submit-button" onClick={handleSubmit}>
+        Submit
+      </button>
+    </div>
+  );
+}
+
+export default DonationForm;

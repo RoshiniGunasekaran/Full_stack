@@ -1,129 +1,164 @@
-/* Ensure the body and html allow scrolling */
-/* html, body {
-    min-height: 100vh; 
-    margin: 0; 
-    overflow-x: visible; 
-    overflow-y: auto; 
-} */
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    margin-top: 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo Styling */
+.logo h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 2.5rem;
+    color: #000;
+    margin: 0;
+}
+
+/* Navigation Links Styling */
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+/* Hover Effect */
+.nav-links a:hover {
+    color: #ff5733;
+}
+
+/* Contest Link Styling */
+.contest {
+    list-style: none;
+    margin-left: -30px;
+}
+
+.contest_button {
+    position: relative;
+    left: -30px;
+}
+
+.contest a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    background-color: rgb(244, 220, 42);
+    padding: 8px 15px;
+    border-radius: 5px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Hover Effect for Contest */
+.contest a:hover {
+    background-color: #ff5733;
+}
 
 /* General Page Styling */
 .welcome-page {
-    padding-top: 60px; /* Ensure content appears below the navbar */
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space between content and image */
-    height: 100%;/* Full height of the viewport, allows content to grow */
-    flex-wrap: wrap; /* Ensure the layout is responsive */
-    background-color: #f4f4f4; /* Light background for a cleaner look */
-    padding: 20px; /* Add padding for small screens */
-    box-sizing: border-box; /* Ensure padding doesn't affect total height */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 120px 20px 20px;
+    background-color: #f4f4f4;
+    box-sizing: border-box;
 }
 
-/* Welcome Text Container */
+/* Welcome Content */
 .content_welcome {
-    text-align: left; /* Align text to the left */
-    margin-left: 50px; /* Add space from the left side */
-    font-family: 'Roboto', sans-serif; /* Use a modern, readable font */
-    color: #333; /* Standard dark text color */
-    max-width: 600px; /* Ensure content doesn't get too wide */
+    margin-left: 50px;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    max-width: 600px;
+    text-align: center;
 }
 
-/* Welcome Heading */
 .content_welcome h1 {
-    font-size: 3rem; /* Larger font for more impact */
-    color: #ff5733; /* Bright orange color for the heading text */
-    margin: 0 0 20px 0; /* Add space below the heading */
-    line-height: 1.2; /* Better line spacing */
+    font-size: 3rem;
+    color: #ff5733;
+    margin: 0 0 20px;
+    line-height: 1.2;
 }
 
-/* Welcome Text Paragraph */
 .content_welcome p {
-    font-size: 1.1rem; /* Slightly larger text for description */
-    color: #555; /* Darker text color for better readability */
-    margin-bottom: 20px; /* Add margin below the paragraph */
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
 }
 
-/* Welcome Image Container */
+/* Welcome Image */
 .image_welcome {
-    display: flex; /* Use flexbox to center the image */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    margin: 20px; /* Add margin around the image */
-    max-width: 400px; /* Limit the size of the image container */
-    flex-grow: 1; /* Allow the image to grow and shrink */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    max-width: 400px;
+    flex-grow: 1;
 }
 
-/* Image Styling */
 .image_welcome img {
-    width: 100%; /* Ensure the image scales with the container */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 15px; /* More rounded corners for a softer look */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); /* Stronger shadow for a modern look */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Image Hover Effect */
 .image_welcome img:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25); /* Increase shadow on hover */
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* Button Styling */
 .button_welcome {
-    background-color: #3498db; /* Blue background color */
-    color: #fff; /* White text color */
-    padding: 12px 25px; /* Increase padding for better appearance */
-    border: none; /* Remove border */
-    border-radius: 8px; /* Slightly more rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 18px; /* Increase font size */
-    font-weight: bold; /* Bold text for better visibility */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Add smooth transitions */
-    margin-top: 20px; /* Add spacing above the button */
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
 }
 
 /* Button Hover and Active Effects */
 .button_welcome:hover {
-    background-color: #2e6da4; /* Darker blue on hover */
-    transform: translateY(-3px); /* Subtle lift effect on hover */
+    background-color: #2e6da4;
+    transform: translateY(-3px);
 }
 
 .button_welcome:active {
-    background-color: #1a5d8a; /* Even darker blue when active */
-    transform: translateY(1px); /* Slight push down on active */
+    background-color: #1a5d8a;
+    transform: translateY(1px);
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .welcome-page {
-        flex-direction: column; 
-        justify-content: center;
-        height: 100%; 
-        padding: 40px 20px;
-    }
-
-    .content_welcome {
-        margin-left: 0; 
-        text-align: center;
-    }
-
-    .content_welcome h1 {
-        font-size: 2.5rem; 
-    }
-
-    .content_welcome p {
-        font-size: 1rem; 
-    }
-
-    .image_welcome {
-        margin: 20px 0; 
-    }
-
-    .button_welcome {
-        width: 100%; 
-    }
-}
-
-/* Top Three Trending Foods Section */
+/* Trending Foods Section */
 .trending-foods {
     padding: 40px 20px;
     background-color: #f9f9f9;
@@ -145,103 +180,110 @@
     margin: 0 auto 30px;
 }
 
-/* Food Item Container */
 .food-items {
     display: flex;
     justify-content: center;
     gap: 30px;
-    flex-wrap: wrap; /* Allow images to wrap on smaller screens */
+    flex-wrap: wrap;
 }
 
-/* Individual Food Item */
 .food-item {
     width: 280px;
-    text-align: center;
     background-color: #fff;
     padding: 15px;
-    height: 100%;
+    text-align: center;
     border-radius: 10px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Food Image Styling */
 .food-item img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
-/* Food Title */
+/* Food Item Hover Effect */
+.food-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
 .food-item h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #333;
     margin-bottom: 10px;
 }
 
-/* Food Description */
-.food-item p {
-    font-size: 1rem;
-    color: #555;
+/* Button inside Food Items */
+.button_food {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
 }
 
-/* Hover Effects */
-.food-item:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+.button_food:hover {
+    background-color: #2e6da4;
+    transform: translateY(-3px);
+}
+
+.button_food:active {
+    background-color: #1a5d8a;
+    transform: translateY(1px);
 }
 
 /* Footer Styling */
 .footer {
-    padding: 40px 20px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-}
-
-.footer-content {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: space-around;  /* Distribute the columns evenly */
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.footer-item {
-    flex: 1;
-    padding: 10px;
-    max-width: 300px;
+.footer-column {
+    flex: 1;  /* Each column takes up equal space */
+    text-align: center;
+    padding: 0 20px;
 }
 
-.footer-item h3 {
+.footer-column:not(:last-child) {
+    border-right: 1px solid #ccc;  /* Add a border between the columns */
+}
+
+.footer-column p {
+    margin: 0;
+    font-size: 1rem;
+    padding: 10px 0;
+}
+
+.footer-column h3 {
     font-size: 1.5rem;
-    color: #ff5733;
     margin-bottom: 10px;
 }
 
-.footer-item p {
-    font-size: 1rem;
-    color: #ddd;
-}
-
-.footer-item a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer-item a:hover {
-    text-decoration: underline;
-}
-
-/* Responsive Footer */
+/* Responsive Design */
 @media screen and (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
+    .footer {
+        flex-direction: column;  /* Stack the columns vertically on small screens */
+        text-align: center;
     }
 
-    .footer-item {
-        text-align: center;
-        margin-bottom: 20px;
+    .footer-column {
+        padding: 10px 0;
+        border: none;  /* Remove the borders between columns on small screens */
     }
 }

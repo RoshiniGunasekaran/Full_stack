@@ -1,165 +1,114 @@
-/* Reset some basic styles */
-* {
+/* General Body Styles */
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body, html, #root {
-    height: 100%;
-    width: 100%;
-    font-family: 'Arial', sans-serif;
-    overflow: hidden;
-}
-
-.register-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../../Backgroundimagesregister.jpg'); /* Adjusted to relative path */
-    background-size: cover;
-    background-position: center;
-    z-index: -2; /* Behind the overlay */
-}
-
-
-/* Overlay to darken the background image for better readability */
-.register-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Darker overlay for better readability */
-    z-index: -1; /* Behind the content */
-}
-
-/* Register Container */
-.register-container {
-    position: relative;
-    z-index: 1;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: url('https://i.ibb.co/yFWzhXd/login-3-bg.png');
+    background-position: center;
+    background-size: cover;
     height: 100vh;
-    padding: 20px;
-}
-
-/* Register Title */
-.register-title {
-    font-size: 48px; /* Title font size */
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 0 0 15px rgba(255, 105, 180, 1); /* Enhanced glow effect */
-    margin-bottom: 20px;
-    transition: transform 0.3s; /* Title hover effect */
-}
-
-.register-title:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-}
-
-/* Register Form */
-.register-form {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    padding: 30px;
-    border: 2px solid #fff;
-    border-radius: 20px; /* Slightly more rounded corners */
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)); /* Gradient background */
-    backdrop-filter: blur(20px); /* Increased blur effect */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); /* Deeper shadow effect */
-    width: 100%;
-    max-width: 400px; /* Maximum width of the form */
-}
-
-/* Register Inputs */
-.register-input {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 15px; /* Space between inputs */
-    border: 2px solid rgba(255, 105, 180, 0.5); /* Subtle border */
-    border-radius: 12px; /* Slightly more rounded corners */
-    background-color: rgba(255, 255, 255, 0.8); /* Background color for inputs */
+    font-family: 'Roboto', sans-serif;
     color: #333;
-    font-size: 16px;
-    transition: all 0.3s; /* Smooth transition */
 }
 
-.register-input:focus {
-    background-color: #fff; /* Change background on focus */
-    border-color: #ff69b4; /* Change border color on focus */
-    box-shadow: 0 0 10px rgba(255, 105, 180, 0.5); /* Shadow on focus */
-    outline: none; /* Remove default outline */
-}
-
-/* Register Button */
-.register-button {
+/* Form Wrapper Styles - Make the form slightly larger */
+.form-2-wrapper {
+    background: rgba(157, 0, 255, 0.18); /* Lightened background */
+    padding: 50px 60px; /* Increased padding */
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    max-width: 450px; /* Increased width */
     width: 100%;
-    padding: 15px;
-    background: linear-gradient(90deg, #ff69b4, #ff99cc); /* Gradient button */
+}
+
+/* Input Field Styles */
+input.form-control {
+    padding: 14px 20px; /* Increased padding */
+    border: 2px solid #4a6ed6; /* Slightly darker border */
+    border-radius: 30px;
+    background-color: transparent;
+    font-family: 'Arial', Helvetica, sans-serif;
+    margin-bottom: 15px;
+    width: 100%;
+    font-size: 15px; /* Slightly larger font size */
+    transition: border-color 0.3s ease;
+}
+
+input.form-control:focus {
+    box-shadow: none !important;
+    outline: 0;
+    background-color: transparent;
+    border-color: #b400ff; /* Border color on focus */
+}
+
+/* Login Button Styles */
+button.login-btn {
+    background: #b400ff;
     color: #fff;
     border: none;
-    border-radius: 12px; /* Slightly more rounded corners */
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    transition: all 0.3s; /* Smooth transition */
+    padding: 14px;
+    border-radius: 30px;
+    width: 100%;
+    font-size: 17px; /* Slightly larger font size */
+    transition: background-color 0.3s ease;
 }
 
-.register-button:hover {
-    background: linear-gradient(90deg, #ff99cc, #ff69b4); /* Inverse gradient on hover */
-    transform: translateY(-3px); /* Lift effect on hover */
+button.login-btn:hover {
+    background-color: #9e00e6; /* Darker shade on hover */
 }
 
-.register-button:active {
-    transform: translateY(0); /* Reset lift effect on click */
+/* Register Button Styles */
+button.register-btn {
+    background: #000; /* Black background */
+    color: #fff; /* White text */
+    border: none;
+    padding: 14px;
+    border-radius: 30px;
+    width: 100%;
+    font-size: 17px; /* Slightly larger font size */
+    transition: background-color 0.3s ease;
 }
 
-/* Error Message */
-.register-error {
-    color: #ff4d4d; /* Error message color */
-    margin-top: 15px;
-    text-align: center; /* Center align error message */
-    font-weight: bold;
-    font-size: 14px; /* Slightly smaller font size */
+button.register-btn:hover {
+    background-color: #333; /* Darker shade on hover */
 }
 
-/* Login Link */
-.register-login {
-    margin-top: 20px;
-    font-size: 16px;
-    color: #fff; /* Link color */
-    text-align: center; /* Center align link */
+/* Register Link Styles */
+.register-test a {
+    color: #7c7c7c;
+    text-decoration: none;
+    font-weight: 500;
 }
 
-.register-login-link {
-    text-decoration: none; /* Remove underline */
-    color: #ff69b4; /* Link color */
-    font-weight: bold; /* Bold link */
-    transition: color 0.3s; /* Smooth transition */
+.register-test a:hover {
+    color: #030303;
+}
+/* Error Message Styles */
+.text-danger {
+    color: #0b0b0b;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
 }
 
-.register-login-link:hover {
-    color: #ff99cc; /* Change link color on hover */
-}
-
-/* Responsive Design */
-@media (max-width: 500px) {
-    .register-title {
-        font-size: 36px; /* Smaller font size for mobile */
+/* Mobile Responsiveness */
+@media (max-width: 576px) {
+    .form-2-wrapper {
+        padding: 40px;
     }
 
-    .register-form {
-        padding: 20px; /* Adjust form padding for mobile */
+    input.form-control {
+        padding: 12px 15px;
     }
 
-    .register-input, .register-button {
-        padding: 12px; /* Adjust padding for inputs and buttons */
-        font-size: 16px; /* Adjust font size for inputs and buttons */
+    button.login-btn {
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .social-login button {
+        padding: 10px 15px;
     }
 }

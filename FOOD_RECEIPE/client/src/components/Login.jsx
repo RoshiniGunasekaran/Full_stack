@@ -1,21 +1,20 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup'; 
-import './Login.css'; 
+import * as Yup from 'yup';
+import { Link } from 'react-router-dom';  // Import Link from react-router-dom
+import './Login.css';
 
 const validationSchema = Yup.object().shape({
     email: Yup.string()
         .email('Invalid email')
         .required('Email is required'),
     password: Yup.string()
-        .min(3, 'Password must be at least 6 characters') 
+        .min(6, 'Password must be at least 6 characters')
         .required('Password is required'),
 });
 
 const Login = () => {
-    const [error, setError] = useState(null); 
-    const navigate = useNavigate(); 
+    const [error, setError] = useState(null);
 
     const handleSubmit = async (values, { setSubmitting }) => {
         const { email, password } = values;
@@ -30,62 +29,71 @@ const Login = () => {
             });
 
             if (response.ok) {
-                navigate('/meal'); // Redirect to the Meal component
+                console.log('Login successful');
             } else {
                 const data = await response.json();
-                setError(data.message); 
+                setError(data.message);
             }
         } catch (error) {
             console.error('Error:', error);
             setError('An error occurred. Please try again.');
         } finally {
-            setSubmitting(false); 
+            setSubmitting(false);
         }
     };
 
     return (
-        <div className="login-page">
-            <div className="background-image"></div>
-            <div className="overlay"></div> {/* Overlay for darkening effect */}
-            <div className="login-container">
-                <h2 className="login-title">Login</h2>
+        <div className="form-container">
+            <div className="form-2-wrapper">
+                <h2 className="logo text-center">Logo</h2>
+                <h2 className="text-center mb-4">Sign Into Your Account</h2>
                 <Formik
                     initialValues={{ email: '', password: '' }}
                     validationSchema={validationSchema}
-                    onSubmit={handleSubmit} // Handle form submission
+                    onSubmit={handleSubmit}
                 >
                     {({ isSubmitting }) => (
-                        <Form className="login-form">
-                            <div>
+                        <Form>
+                            <div className="mb-3 form-box">
                                 <Field
                                     type="email"
                                     name="email"
-                                    placeholder="Email"
-                                    className="login-input"
+                                    className="form-control"
+                                    placeholder="Enter Your Email"
                                 />
-                                <ErrorMessage name="email" component="div" style={{ color: 'red' }} />
+                                <ErrorMessage name="email" component="div" className="text-danger" />
                             </div>
-                            <div>
+                            <div className="mb-3">
                                 <Field
                                     type="password"
                                     name="password"
-                                    placeholder="Password"
-                                    className="login-input"
+                                    className="form-control"
+                                    placeholder="Enter Your Password"
                                 />
-                                <ErrorMessage name="password" component="div" style={{ color: 'red' }} />
+                                <ErrorMessage name="password" component="div" className="text-danger" />
+                                <a href="forget-3.html" className="text-decoration-none float-end">Forget Password</a>
                             </div>
-                            <button type="submit" className="login-button" disabled={isSubmitting}>
-                                Login
-                            </button>
+                            <div className="mb-3">
+                                <div className="form-check">
+                                <label className="form-check-label" htmlFor="rememberMe">Remember me</label>
+                                    <Field type="checkbox" className="form-check-input" id="rememberMe" />
+
+                                    
+                                    
+                                </div>
+                            </div>
+                            <button type="submit" className="btn btn-outline-secondary login-btn w-100 mb-3" disabled={isSubmitting}>Login</button>
+                            <div className="social-login mb-3 type--A">
+                                <button className="btn btn-outline-secondary mb-3"><i className="fa-brands fa-google text-danger"></i> Sign With Google</button>
+                                <button className="btn btn-outline-secondary mb-3"><i className="fa-brands fa-facebook-f text-primary"></i> Sign With Facebook</button>
+                            </div>
                         </Form>
                     )}
                 </Formik>
-                {error && <p className="login-error">{error}</p>} {/* Display error message */}
-                <p className="login-register">
-                    Don&apos;t have an account?{' '}
-                    <Link to="/register" className="login-register-link">
-                        Register here
-                    </Link>
+                {/* Use Link instead of a regular <a> to navigate to the Register page */}
+                <p className="text-center register-test mt-3">
+                    Don't have an account? 
+                    <Link to="/register" className="text-decoration-none">Register here</Link>
                 </p>
             </div>
         </div>

@@ -4,17 +4,17 @@
     justify-content: space-between; /* Space between logo and links */
     align-items: center; /* Center items vertically */
     padding: 10px 20px; /* Top/bottom and left/right padding */
-    background-color: transparent; /* Semi-transparent white background */
+    background-color: #ffffff; /* Changed to white background */
     position: fixed; /* Keeps the navbar fixed at the top */
     top: 0; /* Stays at the top */
     width: 100%; /* Full width */
-    height : 10%;
-    backdrop-filter: blur(8px); /* Adds a blur effect behind the navbar */
+    backdrop-filter: blur(8px); /* Optional: adds a blur effect behind the navbar */
     z-index: 1000; /* Ensures the navbar is above other content */
     border: none; /* Removes any border */
     box-shadow: none; /* Removes any box shadow */
     margin-top: 10px;
 }
+
 
 /* Logo styling */
 .logo h1 {

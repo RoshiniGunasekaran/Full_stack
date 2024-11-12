@@ -2,7 +2,7 @@
 html, body {
     height: 100%;
     margin: 0;
-    overflow-y: auto; /* Ensure the page can scroll */
+    overflow-y: auto;
 }
 
 * {
@@ -12,79 +12,108 @@ html, body {
     font-family: 'Roboto', sans-serif;
 }
 
-/* Navbar styling */
+/* Background styling with subtle food-themed overlay */
+body {
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    background-attachment: fixed;
+}
+
+/* Navbar styling with textured effect */
 .navbar {
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: #f4f4f4;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e42);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 20px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    animation: navbarPop 1.2s ease;
 }
 
 .navbar a {
-    color: #333;
-    font-weight: 500;
+    color: #fff;
+    font-weight: 600;
     margin: 0 15px;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .navbar a:hover {
-    color: #3498db;
+    color: #ffeaa7;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo with slight bounce on hover */
+.navbar .logo {
+    font-size: 1.8em;
+    color: #2d3436;
+    font-weight: bold;
+    position: relative;
+    text-transform: uppercase;
+    animation: logoBounce 1.5s infinite alternate;
+}
+
+@keyframes logoBounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-3px); }
 }
 
 /* Main content styling */
 .meal-page {
     padding-top: 20px;
-    background: linear-gradient(135deg, #f0f4f8, #d9e8fc);
-    min-height: 100vh; /* Ensure the page covers full viewport height */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: auto; /* Enable vertical scrolling */
+    text-align: center;
 }
 
 /* Heading styling */
-.heading {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
 .heading h1 {
-    font-size: 2.5em;
+    font-size: 2.8em;
     color: #2c3e50;
-    margin: 250px 0 10px; /* Adds 40px of space above the heading */
+    margin-top: 120px;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
 .heading h4 {
     font-size: 1.2em;
     color: #555;
     font-weight: 300;
+    margin-bottom: 20px;
 }
 
-/* Search box styling */
+/* Enhanced Search box styling */
 .searchbox {
-    margin-bottom: 30px;
     display: flex;
     justify-content: center;
     width: 100%;
+    margin: 20px 0;
 }
 
 .search-bar {
     width: 100%;
     max-width: 500px;
     padding: 15px;
-    border: 2px solid #ccc;
+    border: 2px solid #3498db;
     border-radius: 25px;
     font-size: 1em;
     outline: none;
     transition: all 0.3s ease;
-    background: #fff;
+    background: #fff url('https://image-url.com/chef-hat.png') no-repeat 10px center;
+    padding-left: 40px;
 }
 
 .search-bar:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+    border-color: #ff8e42;
+    box-shadow: 0 0 12px rgba(255, 142, 66, 0.5);
 }
 
 /* Container for displaying recipes */
@@ -95,7 +124,7 @@ html, body {
     gap: 30px;
 }
 
-/* Individual recipe item styling */
+/* Individual recipe item styling with hover effect */
 .recipe-item {
     background: #fff;
     border-radius: 12px;
@@ -106,6 +135,12 @@ html, body {
     max-width: 300px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
+    cursor: pointer;
+}
+
+.recipe-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .recipe-item img {
@@ -144,7 +179,7 @@ html, body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1000;
-    overflow-y: auto; /* Enable scrolling in the modal if content overflows */
+    overflow-y: auto;
 }
 
 .modal-content {
@@ -168,7 +203,8 @@ html, body {
 /* "Latest Contest" Button Styling */
 .latest-contest-button {
     position: absolute;
-    right: 20px;
+    top: 20px; /* Adjust the vertical positioning */
+    right: 40px; /* Move it a bit closer to the center from the right */
     background: linear-gradient(135deg, #f39c12, #f1c40f);
     color: #fff;
     padding: 10px 20px;
@@ -182,14 +218,25 @@ html, body {
     background: #e67e22;
 }
 
+/* Footer styling */
+.footer {
+    background: #2c3e50;
+    color: #fff;
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
+
+.footer p {
+    margin: 0;
+}
+
 /* Responsive styling */
 @media (max-width: 768px) {
     .heading h1 {
         font-size: 2.2em;
-    }
-
-    .heading h4 {
-        font-size: 1.2em;
     }
 
     .search-bar {
@@ -199,4 +246,10 @@ html, body {
     .recipe-item {
         width: 90%;
     }
+}
+
+/* Navbar animation */
+@keyframes navbarPop {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }

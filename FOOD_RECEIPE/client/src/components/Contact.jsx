@@ -1,77 +1,62 @@
-import React, { useState } from 'react';
-import './COntact.css';
+import React from 'react';
+import './Contact.css'; // Import the CSS file
+import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome icons
 
-function App() {
-  const [searchTerm, setSearchTerm] = useState('');
+function SearchBar({ products }) {
+  const [searchVal, setSearchVal] = React.useState('');
 
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
+  // Handler to update search input value
+  const handleInput = (e) => {
+    setSearchVal(e.target.value);
   };
 
-  const handleSearchSubmit = () => {
-    console.log('Search Term:', searchTerm);
-    // Add your search logic here
+  // Handler to clear search input
+  const handleClearBtn = () => {
+    setSearchVal('');
   };
+
+  // Filter products based on search input
+  const filteredProducts = products.filter((product) =>
+    product.toLowerCase().includes(searchVal.toLowerCase())
+  );
 
   return (
-    <div className="App">
-      <div className={`menu ${searchTerm ? 'active' : ''}`}>
-        <div className="icon-menu">
-          <img
-            
-            height="30"
-            alt="menu icon"
-          />
-        </div>
-        <ul className="nav">
-          <li><a href="#">News</a></li>
-          <li><a href="#">Videos</a></li>
-          <li><a href="#">Articles</a></li>
-          <li><a href="#">Images</a></li>
-          <li><a href="#">Maps</a></li>
+    <div className="container">
+      <div className="input-wrap">
+        <i className="fas fa-search"></i>
+        <label htmlFor="product-search" id="input-label">
+          Product Search
+        </label>
+        <input
+          onChange={handleInput}
+          value={searchVal}
+          type="text"
+          name="product-search"
+          id="product-search"
+          placeholder="Search Products"
+        />
+        <i onClick={handleClearBtn} className="fas fa-times"></i>
+      </div>
+      <div className="results-wrap">
+        <ul>
+          {filteredProducts.map((product) => (
+            <li key={product} className="list-item">
+              <a href="#">{product}</a>
+            </li>
+          ))}
         </ul>
       </div>
-
-      <div className="main">
-        <h1>Heat & Eat</h1>
-      </div>
-
-      <form onSubmit={(e) => e.preventDefault()}>
-        <div className="col-xs-offset-3 col-xs-6">
-          <div className="input-group">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search..."
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
-            <span className="input-group-btn">
-              <button
-                className="btn bt-default"
-                type="button"
-                onClick={handleSearchSubmit}
-              >
-                Go!
-              </button>
-            </span>
-          </div>
-        </div>
-      </form>
-
-      <br /><br />
-      
-      <div className="extra">
-        <a href="#"><h4>Expand Your Search</h4></a>
-      </div>
-
-      <nav className="navbar navbar-inverse navbar-fixed-bottom">
-        <div className="container-fluid">
-          
-        </div>
-      </nav>
     </div>
   );
+}
+
+function App() {
+  const products = [
+    'sweet', 'spicy', 'Savory', 'Souri', 'Bitter', 
+    'Umami',
+  ];
+
+  return <SearchBar products={products} />;
 }
 
 export default App;

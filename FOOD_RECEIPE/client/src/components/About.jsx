@@ -1,75 +1,45 @@
-import React from 'react';
-import './About.css';
+import React from "react";
+import "./About.css";
 
-const About = () => {
+const AboutUs = () => {
+  const topics = [
+    {
+      title: "Our Mission",
+      image: "https://images.pexels.com/photos/406152/pexels-photo-406152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Use relative URL (public folder)
+      text: "Our mission is to provide the best services to our customers. We focus on quality and customer satisfaction above all. We aim to deliver delicious meals that bring joy to every table.",
+      additionalContent: "We are constantly innovating to ensure that our customers have access to the freshest, healthiest, and most enjoyable meals."
+    },
+    {
+      title: "Our Vision",
+      image: "https://images.pexels.com/photos/769969/pexels-photo-769969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Use relative URL (public folder)
+      text: "Our vision is to become the leading company in our industry, bringing innovative solutions to our clients and making a positive impact. We aspire to lead in quality and sustainability.",
+      additionalContent: "Our vision includes expanding our presence globally and contributing to healthier food systems."
+    },
+    {
+      title: "Our Values",
+      image: "https://images.pexels.com/photos/1132558/pexels-photo-1132558.jpeg?auto=compress&cs=tinysrgb&w=600", // Use relative URL (public folder)
+      text: "We believe in integrity, transparency, and accountability in everything we do. Our core values are what guide our work and decision-making. We are committed to excellence.",
+      additionalContent: "Our values also include respect for the environment and a commitment to promoting ethical practices across all of our operations."
+    },
+  ];
+
   return (
-    <div className="about-page">
-      <div className="about-header">
-        <h1>Welcome to Foodie AI!</h1>
-      </div>
-      <div className="about-content">
-        <div className="section">
-          <div>
-            <h3>What is Foodie AI?</h3>
-            <p>
-              At Foodie AI, we aim to bring technology and delicious food together! Using advanced AI technology, our platform helps you identify the food in front of you just by uploading a picture. Whether it's your favorite dish from a restaurant or a home-cooked meal, our AI will analyze the image and provide you with a list of possible recipes that you can try at home.
-            </p>
+    <div className="about-us">
+      <h1 className="page-title">About Us</h1>
+      {topics.map((topic, index) => (
+        <div className="about-topic" key={index}>
+          <div className="text">
+            <h2>{topic.title}</h2>
+            <p>{topic.text}</p>
+            <p>{topic.additionalContent}</p>
           </div>
-          <div className="image-container">
-            <img src="https://via.placeholder.com/1200x600?text=Food+Identification+AI" alt="Food Identification" className="dynamic-image" />
+          <div className="image">
+            <img src={topic.image} alt={topic.title} />
           </div>
         </div>
-
-        <div className="section">
-          <div>
-            <h3>Food Identification</h3>
-            <p>
-              Our AI can help you identify any dish with just a photo! Whether you're at a restaurant or cooking at home, simply upload an image, and we'll suggest recipes based on the food in the picture. It’s like having a personal chef right in your pocket!
-            </p>
-          </div>
-          <div className="image-container">
-            <img src="https://via.placeholder.com/1200x600?text=Food+Identification" alt="Food Identification" className="dynamic-image" />
-          </div>
-        </div>
-
-        <div className="section">
-          <div>
-            <h3>Curated Recipes</h3>
-            <p>
-              Access a vast collection of recipes from around the world, tailored to your taste and dietary preferences.
-            </p>
-          </div>
-          <div className="image-container">
-            <img src="https://via.placeholder.com/1200x600?text=Curated+Recipes" alt="Curated Recipes" className="dynamic-image" />
-          </div>
-        </div>
-
-        <div className="section">
-          <div>
-            <h3>Contest Page</h3>
-            <p>
-              Participate in our monthly "Recipe Master" contest and stand a chance to win exciting prizes. Show off your culinary skills to the world!
-            </p>
-          </div>
-          <div className="image-container">
-            <img src="https://via.placeholder.com/1200x600?text=Recipe+Contest" alt="Recipe Contest" className="dynamic-image" />
-          </div>
-        </div>
-
-        <div className="section">
-          <div>
-            <h3>User Contributions</h3>
-            <p>
-              Add your own recipes and share them with the Foodie AI community. Let others enjoy your delicious creations and become a part of our growing community.
-            </p>
-          </div>
-          <div className="image-container">
-            <img src="https://via.placeholder.com/1200x600?text=User+Contributions" alt="User Contributions" className="dynamic-image" />
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   );
 };
 
-export default About;
+export default AboutUs;

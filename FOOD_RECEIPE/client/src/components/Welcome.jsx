@@ -58,25 +58,23 @@ const Welcome = () => {
 
             {/* Footer */}
             <footer className="footer">
-                <div className="footer-content">
-                    <div className="footer-item">
-                        <h3>Person 1</h3>
-                        <p>Email: <a href="mailto:person1@example.com">person1@example.com</a></p>
-                        <p>GitHub: <a href="https://github.com/person1" target="_blank" rel="noopener noreferrer">GitHub Profile</a></p>
-                        <p>LinkedIn: <a href="https://linkedin.com/in/person1" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
-                    </div>
-                    <div className="footer-item">
-                        <h3>Person 2</h3>
-                        <p>Email: <a href="mailto:person2@example.com">person2@example.com</a></p>
-                        <p>GitHub: <a href="https://github.com/person2" target="_blank" rel="noopener noreferrer">GitHub Profile</a></p>
-                        <p>LinkedIn: <a href="https://linkedin.com/in/person2" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
-                    </div>
-                    <div className="footer-item">
-                        <h3>Person 3</h3>
-                        <p>Email: <a href="mailto:person3@example.com">person3@example.com</a></p>
-                        <p>GitHub: <a href="https://github.com/person3" target="_blank" rel="noopener noreferrer">GitHub Profile</a></p>
-                        <p>LinkedIn: <a href="https://linkedin.com/in/person3" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
-                    </div>
+                <div className="footer-column">
+                    <h3>Person 1</h3>
+                    <p>Email: <a href="mailto:person1@example.com">person1@example.com</a></p>
+                    <p>GitHub: <a href="https://github.com/person1" target="_blank" rel="noopener noreferrer">GitHub Profile</a></p>
+                    <p>LinkedIn: <a href="https://linkedin.com/in/person1" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
+                </div>
+                <div className="footer-column">
+                    <h3>Person 2</h3>
+                    <p>Email: <a href="mailto:person2@example.com">person2@example.com</a></p>
+                    <p>GitHub: <a href="https://github.com/person2" target="_blank" rel="noopener noreferrer">GitHub Profile</a></p>
+                    <p>LinkedIn: <a href="https://linkedin.com/in/person2" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
+                </div>
+                <div className="footer-column">
+                    <h3>Person 3</h3>
+                    <p>Email: <a href="mailto:person3@example.com">person3@example.com</a></p>
+                    <p>GitHub: <a href="https://github.com/person3" target="_blank" rel="noopener noreferrer">GitHub Profile</a></p>
+                    <p>LinkedIn: <a href="https://linkedin.com/in/person3" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
                 </div>
             </footer>
         </div>

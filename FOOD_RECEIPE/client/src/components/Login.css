@@ -1,175 +1,157 @@
-/* Reset some basic styles */
-* {
+/* General Body Styles */
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body, html, #root {
-    height: 100%;
-    width: 100%;
-    font-family: 'Arial', sans-serif;
-    overflow: hidden;
-}
-
-/* Background Image */
-.background-image {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('D:\PROJECT\fullstack\FOOD_RECEIPE\FOOD_RECEIPE\client\Backgroundimages.jpg'); 
-    background-size: cover;
-    background-position: center;
-    z-index: -2; /* Ensure it's behind the overlay and content */
-}
-
-/* Overlay to darken the background image for better readability */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
-    z-index: -1;
-}
-
-/* Login Container */
-.login-container {
-    position: relative;
-    z-index: 1;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: url('https://images.pexels.com/photos/1414651/pexels-photo-1414651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-position: center; 
+    background-size: cover;
     height: 100vh;
-    padding: 20px;
-}
-
-/* Login Title */
-.login-title {
-    font-size: 64px; /* Increase font size */
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 0 0 20px rgba(255, 105, 180, 0.8); /* Add a colorful glow effect */
-    margin-bottom: 30px;
-    text-align: center; /* Center the title */
-    animation: fadeIn 1s ease; /* Optional animation */
-}
-/* Fade-in Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-/* Responsive Design */
-@media (max-width: 500px) {
-    .login-title {
-        font-size: 48px; /* Smaller font size for mobile */
-    }
-}
-
-/* Login Form */
-.login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    padding: 30px;
-    border: 2px solid #fff;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    width: 100%;
-    max-width: 400px;
-}
-
-/* Login Inputs */
-.login-input {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 25px;
-    border: none;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.8);
+    font-family: 'Roboto', sans-serif;
     color: #333;
-    font-size: 16px;
-    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.login-input:focus {
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
-    outline: none;
-}
-
-/* Login Button */
-.login-button {
+/* Form Wrapper Styles - Make the form slightly larger */
+.form-2-wrapper {
+    background: rgba(255, 255, 255, 0.7); /* Lightened background */
+    padding: 50px 60px; /* Increased padding */
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.8); /* Soft shadow effect */
+    max-width: 450px; /* Increased width */
     width: 100%;
-    padding: 15px;
-    background-color: #ff69b4;
+}
+
+/* Input Field Styles */
+input.form-control {
+    padding: 14px 20px; /* Increased padding */
+    border: 2px solid #000000; /* New border color */
+    border-radius: 30px;
+    background-color: transparent;
+    font-family: 'Arial', Helvetica, sans-serif;
+    margin-bottom: 15px;
+    width: 100%;
+    font-size: 15px; /* Slightly larger font size */
+    transition: border-color 0.3s ease;
+}
+
+input.form-control:focus {
+    box-shadow: none !important;
+    outline: 0;
+    background-color: transparent;
+    border-color: #000000; /* New border color on focus */
+}
+
+/* Login Button Styles */
+button.login-btn {
+    background: #020202; /* New button background color */
     color: #fff;
     border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.2s;
+    padding: 14px;
+    border-radius: 30px;
+    width: 100%;
+    font-size: 17px; /* Slightly larger font size */
+    transition: background-color 0.3s ease;
 }
 
-.login-button:hover {
-    background-color: #ff99cc;
-    transform: translateY(-2px);
+button.login-btn:hover {
+    background-color: #292828; /* Darker shade on hover */
 }
 
-.login-button:active {
-    transform: translateY(0);
-}
-
-/* Error Message */
-.login-error {
-    color: #ff4d4d;
-    margin-top: 15px;
-    text-align: center;
-    font-weight: bold;
-}
-
-/* Register Link */
-.login-register {
-    margin-top: 25px;
-    font-size: 16px;
+/* Register Button Styles */
+button.register-btn {
+    background: #050505; /* New blue background */
     color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 30px;
+    width: 100%;
+    font-size: 17px; /* Slightly larger font size */
+    transition: background-color 0.3s ease;
+}
+
+button.register-btn:hover {
+    background-color: #2d2d2d; /* Darker shade on hover */
+}
+
+/* Register Link Styles */
+.register-test a {
+    color: #000000; /* Light pink color */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register-test a:hover {
+    color: #020202; /* Darker pink color on hover */
+}
+
+/* Social Login Buttons Styles */
+.social-login button {
+    background: #f1f1f1;
+    color: #333;
+    border-radius: 30px;
+    border: 2px solid #ccc;
+    padding: 12px 20px; /* Slightly larger padding */
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 15px; /* Larger font size */
+    transition: background-color 0.3s ease;
+}
+
+.social-login button:hover {
+    background: #e0e0e0;
+}
+
+/* Google Button Styles */
+.social-login .google-btn {
+    background: #ffffff; /* Google red */
+    color: #030303;
+}
+
+.social-login .google-btn:hover {
+    background: #e4e4e4; /* Darker red for hover */
+}
+
+/* Facebook Button Styles */
+.social-login .facebook-btn {
+    background: #ececec; /* Facebook blue */
+    color: #0b0b0b;
+}
+
+.social-login .facebook-btn:hover {
+    background: #fefefe; /* Darker blue for hover */
+}
+
+/* Google and Facebook Icons */
+.social-login i {
+    margin-right: 10px;
+}
+
+/* Error Message Styles */
+.text-danger {
+    color: #ff0000; /* Red for error messages */
+    font-size: 14px;
+    margin-top: 10px;
     text-align: center;
 }
 
-.login-register-link {
-    text-decoration: none;
-    color: #ff69b4;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.login-register-link:hover {
-    color: #ff99cc;
-}
-
-/* Responsive Design */
-@media (max-width: 500px) {
-    .login-title {
-        font-size: 36px;
+/* Mobile Responsiveness */
+@media (max-width: 576px) {
+    .form-2-wrapper {
+        padding: 40px;
     }
 
-    .login-form {
-        padding: 20px;
+    input.form-control {
+        padding: 12px 15px;
     }
 
-    .login-input, .login-button {
-        padding: 12px;
-        font-size: 16px;
+    button.login-btn {
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .social-login button {
+        padding: 10px 15px;
     }
 }
